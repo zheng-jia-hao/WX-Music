@@ -1,0 +1,121 @@
+/* 轮播图 */
+.banners {
+  width: 100%;
+  height: 300rpx;
+  margin-bottom: 10rpx;
+}
+.banners image {
+  width: 100%;
+  height: 100%;
+  margin-right: 20rpx;
+}
+
+/* 导航栏 */
+.navContainer {
+  display: flex;
+ 
+}
+.navIten {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navIten .iconfont {
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 40rpx;
+  background-color:#d43c33;
+  margin: 20rpx 0;
+  text-align: center;
+  line-height: 80rpx;
+  font-weight:normal;
+  color: white;
+  border-radius: 50%;
+}
+.navIten text {
+  font-size: 26rpx;
+}
+
+/* 推荐 */
+.recommendContainer {
+  padding: 30rpx;
+  
+}
+
+.recommendBody {
+  display: flex;
+  margin-top: 20rpx;
+   /* scroll-view 会给多出的子元素进行占位,所以需要手动设置高度*/
+   height: 300rpx;
+}
+.scrollItem {
+  width: 200rpx;
+  margin-right: 20rpx;
+}
+.scrollItem image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 20rpx;
+}
+.scrollItem text {
+  font-size: 26rpx;
+  /* 文本溢出后 使用...隐藏 */
+
+  /* 单行文本溢出隐藏 */
+  /* display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+
+  /* 多行文本溢出隐藏 */
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  /* 指定行数 */
+  -webkit-line-clamp: 2;
+  /* 设置对齐方式 */
+  -webkit-box-orient: vertical;
+}
+
+/* 排行榜 */
+.topList {
+  padding: 20rpx;
+}
+.topListSwiper {
+  height: 500rpx;
+}
+.swiperItem {
+  padding: 20rpx;
+  background-color: #fbfbfb;
+  margin-top: 14rpx;
+  border-radius: 20rpx;
+  width: 90%;
+  box-shadow: 10rpx 10rpx 10rpx 3rpx #fbfbfb;
+}
+.swiperItem .title {
+  text-align: center;
+  line-height: 80rpx;
+  /* margin-bottom: 20rpx; */
+}
+.swiperItem .title .iconfont {
+  font-size: 30rpx;
+  color: gray; 
+}
+.musicItem {
+  display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-bottom: 20rpx; 
+}
+.musicItem .index {
+  width: 100rpx;
+  text-align: center;
+}
+.musicItem image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+}

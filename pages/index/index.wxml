@@ -1,0 +1,79 @@
+<view class="indexContainer">
+  <!-- 轮播图 -->
+    <swiper class="banners" indicator-dots circular indicator-active-color="#d43c33" indicator-color="ivory">
+    <!-- 小程序for列表渲染 与 vue的区别
+        vue:
+            <swiper-item v-for="(item,index) in banner" :key="item.targetId">
+              <image :src="item.pic"></image>
+
+        小程序: 小程序中不需要写入实参item,而是固定了实参为item,并且自带index,  
+                使用key时,注意!: 不能加双括号!!!  并且会自动读取item的中的某个数值为key
+                可以使用  wx:for-item="banner" 和  wx:for-index="bindex" 指定实参名称
+            <swiper-item wx:for="{{banners}}" wx:key="targetId">
+              <image src="{{item.pic}}"></image>
+
+            
+
+     -->
+      <swiper-item wx:for="{{banners}}" wx:key="bannerId" wx:for-item="banner">
+        <image src="{{banner.pic}}"></image>
+      </swiper-item>
+    </swiper>
+  <!-- 导航栏 -->
+  <view class="navContainer">
+      <view class="navIten" bindtap="gotoRecommend">
+        <!-- <text>  注意不能换行写，它会计算空的节点
+            icon
+        </text> -->
+
+        <text class="iconfont icon-tuijianpaixu"></text>
+        <text>每日推荐</text>
+      </view>
+      <view class="navIten">
+      <text class="iconfont icon-yinle1"></text>
+      <text>other页面</text>
+    </view>
+    <view class="navIten">
+      <text class="iconfont icon-paihang"></text>
+      <text>排行榜</text>
+    </view>
+    <view class="navIten">
+      <text class="iconfont icon-diantai"></text>
+      <text>电台</text>
+    </view>
+    <view class="navIten">
+      <text class="iconfont icon-zhibo"></text>
+      <text>直播</text>
+    </view>
+  </view>
+  <!-- 每日推荐 -->
+  <view class="recommendContainer">
+    <!-- 头部 -->
+    <NavHeader title="推荐歌曲" navText="为你推荐"></NavHeader>
+    <!-- 滑块 -->
+    <scroll-view class="recommendBody" enable-flex scroll-x>
+      <view class="scrollItem" wx:for="{{recommendList}}" wx:key="id">
+        <image src="{{item.picUrl}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </scroll-view>
+  </view>
+<!-- 排行榜 -->
+  <view class="topList">
+    <NavHeader title="排行榜" navText="热歌风向标"></NavHeader>
+    <swiper class="topListSwiper" next-margin="80rpx">
+      <swiper-item wx:for="{{topList}}" wx:key="name">
+        <view class="swiperItem">
+          <view class="title">{{item.name}}<text class="iconfont icon-youjiantou"></text></view>
+          <view class="musicItem" wx:for="{{item.tracks}}" wx:key="id" wx:for-item="track" wx:for-index="trackindex">
+            <image src="{{track.al.picUrl}}"></image>
+            <text class="index">{{trackindex+1}}</text>
+            <text class="songname">{{track.name}}</text>
+          </view>
+         
+        </view>
+        
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

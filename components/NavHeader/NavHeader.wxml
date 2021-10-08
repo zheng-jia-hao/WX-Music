@@ -1,0 +1,9 @@
+<!--components/NavHeader/NavHeader.wxml-->
+<!--   // 注册子组件 需要在 .json文件中以 "组件名":"组件所在位置"的方式进行注册 -->
+<view class="Header">
+      <view class="title">{{title}}</view>
+      <view class="nav">
+        <text>{{navText}}</text>
+        <text class="more">查看更多</text>
+      </view>
+    </view>

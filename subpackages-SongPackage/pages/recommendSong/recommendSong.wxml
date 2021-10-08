@@ -1,0 +1,36 @@
+<view class="recommendContainer">
+  <view class="header">
+    <image src="/static/images/recommendSong/recommendSong.jpg"></image>
+
+    <view class="date">
+      <text class="day">{{day}} / </text>
+      <text class="month">{{month}}</text>
+    </view>
+  </view>
+
+  <view class="listContainer">
+    <view class="listHeader">
+      <text>播放全部</text>
+      <text class="more">多选</text>
+    </view>
+
+    <!-- 列表 -->
+    <scroll-view class="listScroll" scroll-y>
+      <view class="listItem"
+        bindtap="handleTap" 
+        wx:for="{{recommendList}}" 
+        wx:key="id" 
+        data-ids="{{item.id}}"
+        data-index="{{index}}"
+         >
+        <image src="{{item.album.blurPicUrl}}"></image>
+        <view class="musicInfo">
+          <text>{{item.name}}</text>
+          <text class="sing">{{item.artists[0].name}}</text>
+        </view>
+        <text class="iconfont icon-gengduo"></text>
+      </view>
+    </scroll-view>
+  </view>
+
+</view>
